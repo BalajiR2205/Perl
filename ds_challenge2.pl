@@ -31,7 +31,11 @@ foreach (keys %output){
 }
 
 my %map_ouput;
-# my %map_ouput = map {$_->{companyid}->{employeename} = $_->{employeename}} @$array;
+
+# We shouldn't assign inside map like below instead we have to return a key=>value pair.
+# my %map_output = map {$_->{companyid}->{employeename} = $_->{employeename}} @$array; 
+
+# my %map_output = map { $_->{companyid} => { employeename => $_->{employeename} } } @$array;
 
 map { $map_ouput{$_->{companyid}}->{employeename} = $_->{employeename} } @$array;
 
