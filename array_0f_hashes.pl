@@ -41,6 +41,11 @@ print "\n".$name;
 
 # Loop through all records
 foreach my $elem (@array){
+# In Perl, when $elem is a hash reference, you access its elements using -> syntax, like $elem->{name}.
+
+# $elem{name} means you are treating $elem as a hash, but since it's a reference, this causes an error.
+
+# $elem->{name} correctly dereferences the hash reference to access the 'name' key.
   print "\nNames: $elem->{name}";
   print "\nAge: $elem->{age}";
 }
